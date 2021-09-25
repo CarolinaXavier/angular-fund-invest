@@ -1,1 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
+/* * {
+    padding-left: 20px;
+    padding-right: 20px;
+} */
+
+body {
+    background-color: #eceff0;
+}
+
+.header-page {
+    background: #415d62;
+    color: #fff;
+}
+.table-custom {
+    margin-top: 20px;
+    background-color: #ffffff;
+    border-radius: 0.4rem;
+    border: solid 1px #8e999f;
+    &.table thead th {
+        padding-left: 2rem;
+        vertical-align: bottom;
+        border-bottom: none;
+    }
+    &.table td {
+        padding-left: 2rem;
+        vertical-align: top;
+    }
+    &.table th {
+        padding-left: 2rem;
+        vertical-align: top;
+        border-top: none;
+    }
+}
