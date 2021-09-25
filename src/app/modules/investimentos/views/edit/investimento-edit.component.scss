@@ -1,4 +1,18 @@
+.row-container{
+    margin: 20px;
+}
+
 .title-label{
     color:#798a8d;
     margin-top: 15px;
+}
+
+.row-custom{
+    background-color: #ffffff;
+    border-radius: 0.4rem;
+    border: solid 1px #8e999f;
+    padding: 20px 20px 20px 0;
+    margin: 0;
+    display:flex;
+    flex-direction: row;
 }

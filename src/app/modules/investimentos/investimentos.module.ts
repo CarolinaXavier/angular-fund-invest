@@ -5,6 +5,7 @@ import { InvestimentosListComponent } from './views/list/investimentos-list.comp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { InvestimentoEditComponent } from './views/edit/investimento-edit.component';
+import { SharedPipesModule } from 'src/app/shared/pipes/shared-pipes.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'investimento/list' },
@@ -14,16 +15,20 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    HeaderPageComponent,
-  ],
+    InvestimentosListComponent,
+    InvestimentoEditComponent
+   ],
   entryComponents: [
+    InvestimentosListComponent,
+    InvestimentoEditComponent
   ],
   imports: [
     RouterModule.forChild(routes),
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    SharedPipesModule
   ],
-  exports: [RouterModule, HeaderPageComponent]
+  exports: [RouterModule]
 })
 export class InvestimentosModule { }

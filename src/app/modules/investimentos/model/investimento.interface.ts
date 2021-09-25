@@ -3,6 +3,7 @@ export interface InvestimentoDados {
     objetivo: string;
     saldoTotalDisponivel: number;
     indicadorCarencia: string;
+    valorTotalResgatar:number | 0;
     acoes:InvestimentoAcoes[];
   }
 
