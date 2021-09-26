@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-
-import { InvestimentoDados } from '../../model/investimento.interface';
+import { InvestimentoDados } from '../../model/investimento.model';
 import { InvestimentoService } from '../../services/investimento.service';
 
 @Component({
@@ -16,10 +15,7 @@ export class InvestimentosListComponent implements OnInit {
     public router: Router,
     public route: ActivatedRoute,
     private service: InvestimentoService
-  ) {
-
-
-  }
+  ) {  }
 
   ngOnInit(): void {
     console.log('asd')

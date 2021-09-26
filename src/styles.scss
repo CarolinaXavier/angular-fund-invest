@@ -33,3 +33,12 @@ body {
         border-top: none;
     }
 }
+
+.has-error{
+	border-bottom: 2px solid #dc3545 !important;
+	color: #dc3545 !important;
+}
+
+.has-valid{
+	border-bottom: 2px solid green !important;
+}

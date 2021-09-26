@@ -1,4 +1,4 @@
-<div class="row">
+<section class="row">
     <div class="col-sm-12">
         <div class="card-header  bg-dark text-white">
             <h3>Investimentos</h3>
@@ -10,7 +10,6 @@
                 <h4 class="title-label">DADOS DO INVESTIMENTO</h4>
             </div>
             <div class="row row-custom">
-
                 <div class="col-sm-4">
                     <div class="row">
                         <div class="col-sm-12">
@@ -50,48 +49,71 @@
             </div>
         </div>
         <div class="col-sm-12">
-            <div class="row">
+            <div class="col-sm-12">
+                <h4 class="title-label">RESGATE DO SEU JEITO</h4>
+            </div>
+            <div class="row row-custom">
                 <div class="col-sm-12">
-                    <h4 class="title-label">RESGATE DO SEU JEITO</h4>
-                </div>
-                <div class="col-sm-12">
-                    <div class="d-print-inline-flex">
-                        <!--   <form role="form" [formGroup]="form"> -->
-                        <table class="table table table-hover table-custom">
-                            <thead>
-                                <tr>
-                                    <th scope="col">AÇÃO</th>
-                                    <th scope="col">SALDO ACUMULADO</th>
-                                    <th scope="col">VALOR A RESGATAR</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>
-                                        <div class="input-group mb-3">
-                                            <input formControlName="item" type="text" class="form-control"
-                                                aria-label="Default" aria-describedby="inputGroup-sizing-default">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>
-                                        <div class="input-group mb-3">
-                                            <!--    <input type="text" class="form-control" aria-label="Default"
-                                            aria-describedby="inputGroup-sizing-default"> -->
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <!--  </form> -->
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    AÇÃO
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    SALDO ACUMULADO
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    VALOR A RESGATAR
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-sm-12">
+                    <form role="form" [formGroup]="form">
+                        <div class="row" *ngFor="let item of model.acoes; let i = index;">
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        {{item.nome}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        {{(item.valorTotalResgatar|| '0') | format: 'currencybr'}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <input name="inputName" class="form-control" placeholder="" type="text"
+                                        [ngClass]="formCustom.displayFieldCss(i, form)" 
+                                            formControlName="a{{i}}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+               
+            </div>
+            <div class="col-sm-12">
+                <button type="button" class="btn btn-primary float-right" (click)="onSubmit()">Confirmar
+                    resgate</button>
             </div>
         </div>
     </div>
-</div>
+</section>
