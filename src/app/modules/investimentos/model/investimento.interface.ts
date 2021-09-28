@@ -2,7 +2,8 @@ export interface InvestimentoAcoes {
   id: string;
   nome: string;
   percentual: number;
-  valorTotalResgatar: number | 0;
+  valorTotalResgatar: any;
   valoresResgate: number | 0;
+  formInputName:string;
 }
 

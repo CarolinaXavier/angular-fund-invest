@@ -10,6 +10,9 @@
         "experimentalDecorators": true,
         "module": "esnext",
         "target": "ES5",
+        "types": [
+            "node",
+        ],
         "typeRoots": [
             "node_modules/@types"
         ],
@@ -23,5 +26,12 @@
                 "./src/app/core/*"
             ]
         }
-    }
+    },
+    "filesGlob": [
+        "./src/**/*.ts",
+        "./test/**/*.ts",
+        "!./node_modules/**/*.ts",
+        "src/custom_typings.d.ts",
+        "typings/browser.d.ts"
+    ],
 }

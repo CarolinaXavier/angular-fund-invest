@@ -29,20 +29,16 @@ export class FormCustomValidator {
 		return !form.get(field).valid && form.get(field).touched;
 	}
 
+	
+
 	public displayFieldCss(field: string, form: FormGroup) {
-		console.log(form.get('a'+field))
-		field = 'a'+field
-		if (!form.get(field)) {
-			throw new Error('Não tem o formControlName ' + field);
-		}
 		return {
 			'has-error': this.isFieldValid(field, form),
-			'has-valid': !this.isFieldValid(field, form) && form.get(field).touched
+			'has-valid': !this.isFieldValid(field, form)
 		};
 	}
 
 	public createForm(model: any) {
-		console.log('cretr', model)
 		return this.formBuilder.group(model.toFormGroup());
 	}
 
@@ -118,5 +114,18 @@ export class FormCustomValidator {
 		}
 
 		return true;
+	}
+
+	static moreThanEquals(moreThanEquals: number) {
+		return ((control: AbstractControl) => {
+			let value = control.value;
+			let error = { moreThanEquals: { value: value, expect: moreThanEquals } };
+			if (value !== null && value !== undefined) {
+				if (Number(value) < moreThanEquals) {
+					return error;
+				}
+			}
+			return null;
+		});
 	}
 }

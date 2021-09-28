@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { InvestimentosListComponent } from './views/list/investimentos-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HeaderPageComponent } from './components/header-page/header-page.component';
 import { InvestimentoEditComponent } from './views/edit/investimento-edit.component';
 import { SharedPipesModule } from 'src/app/shared/pipes/shared-pipes.module';
+import { CurrencyMaskModule, CURRENCY_MASK_CONFIG } from 'ng2-currency-mask';
+import { BRCurrencyMaskConfig } from 'src/app/shared/config/BRCurrencyMaskConfig';
 
 const routes: Routes = [
   { path: '', redirectTo: 'investimento/list' },
@@ -17,7 +18,7 @@ const routes: Routes = [
   declarations: [
     InvestimentosListComponent,
     InvestimentoEditComponent
-   ],
+  ],
   entryComponents: [
     InvestimentosListComponent,
     InvestimentoEditComponent
@@ -27,8 +28,10 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedPipesModule
+    SharedPipesModule,
+    CurrencyMaskModule,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: BRCurrencyMaskConfig }]
 })
 export class InvestimentosModule { }

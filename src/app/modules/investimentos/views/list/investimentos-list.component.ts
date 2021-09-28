@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { InvestimentoDados } from '../../model/investimento.model';
+import {
+  InvestimentoDados,
+  InvestimentoTipo,
+} from '../../model/investimento.model';
 import { InvestimentoService } from '../../services/investimento.service';
 
 @Component({
   selector: 'app-investimentos-list',
   templateUrl: './investimentos-list.component.html',
-  styleUrls: ['./investimentos-list.component.scss']
+  styleUrls: ['./investimentos-list.component.scss'],
 })
 export class InvestimentosListComponent implements OnInit {
   investlist: InvestimentoDados[] = [];
@@ -15,28 +18,28 @@ export class InvestimentosListComponent implements OnInit {
     public router: Router,
     public route: ActivatedRoute,
     private service: InvestimentoService
-  ) {  }
+  ) {}
 
   ngOnInit(): void {
-    console.log('asd')
     this.search();
   }
 
   search() {
     this.service.all().subscribe((resp: any) => {
-      if(resp.response.status == 200)
+      if (resp.response.status == 200)
         this.investlist = resp.response.data.listaInvestimentos;
-      console.log(this.investlist)
+      console.log(this.investlist);
     });
   }
 
   edit(item) {
-    let navigationExtras: NavigationExtras = {
-      state: {
-        model: item
-      }
-    };
-    this.router.navigate(['/investimento/edit'], navigationExtras);
+    if (item.indicadorCarencia !== InvestimentoTipo.SEM_CARENCIA) {
+      const navigationExtras: NavigationExtras = {
+        state: {
+          model: item,
+        },
+      };
+      this.router.navigate(['/investimento/edit'], navigationExtras);
+    }
   }
-
 }

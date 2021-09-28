@@ -1,0 +1,14 @@
+.modal-content {
+  padding: 5px;
+}
+
+.modal-header,
+.modal-body,
+.modal-footer {
+  border: none;
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+  padding: 10px;
+}

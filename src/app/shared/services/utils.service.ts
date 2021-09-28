@@ -6,7 +6,10 @@ import { Injectable } from '@angular/core';
 export class UtilsService {
 
   formartCurrency(value: number, isSymbol: boolean) {
-   return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BR' }).format(value);
-   
+    console.log(value)
+      if (isSymbol)
+        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+      else
+        return new Intl.NumberFormat('pt-BR', { maximumSignificantDigits: 3 }).format(value);
   }
 }
